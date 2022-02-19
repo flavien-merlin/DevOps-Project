@@ -6,7 +6,6 @@ node {
     stage("Build"){
         sh "/usr/local/bin/docker-compose up"
     }
-    stage("click"){
-        sh "python3 click.py"
+    
     }
 }
