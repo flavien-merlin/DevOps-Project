@@ -28,3 +28,6 @@ def test_score_service():
     else:
         chrome_driver.close()
         return False
+
+    
+main_function()
