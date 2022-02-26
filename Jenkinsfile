@@ -8,7 +8,7 @@ node {
     }
     stage("Test"){
         try{
-            sh "python3 /Users/neo/.jenkins/workspace/neo-wog/e2e.py"
+            sh "python3 e2e.py"
         }
         catch (error){
             sh "echo Jenkins failed"
