@@ -1,9 +1,14 @@
 properties([pipelineTriggers([pollSCM('* * * * *')])])
-node{
+pipeline{
+    agent any
+
     stage("clone"){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/flavien-merlin/neo.git']]])
     }
-    stage("Build & Run"){
+    stage("Build"){
+        sh "/usr/local/bin/docker-compose build"
+    }
+    stage("Run"){
         sh "/usr/local/bin/docker-compose up -d"
     }
     stage("Test"){
@@ -16,7 +21,8 @@ node{
     }
     stage("Finalize"){
         steps{
-        sh "docker stop neo"   
+            sh "/usr/local/bin/docker-compose push"
+            sh "docker stop neo"   
         }
     }
 }
