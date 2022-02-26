@@ -6,6 +6,4 @@ services:
       dockerfile: Dockerfile
     ports:
      - "8777:5000"
-    container_name: neo
-  alpine:
-    image: "alpine"
+    image: flav95/neo
