@@ -14,7 +14,7 @@ def main_function():
 
 
 def test_score_service():
-    url = "http://127.0.0.1:5000"
+    url = "http://127.0.0.1:8777"
     directory = os.path.dirname(os.path.realpath(__file__))
     chrome_options = Options()
     chrome_options.add_experimental_option("detach", True)
