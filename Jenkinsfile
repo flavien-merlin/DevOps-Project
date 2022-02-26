@@ -1,5 +1,5 @@
 properties([pipelineTriggers([pollSCM('* * * * *')])])
-pipeline{
+node{
     environment{
         registry = "flav95/neo" 
         registryCredential = 'neo-dockerhub'
