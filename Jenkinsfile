@@ -4,10 +4,10 @@ node{
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/flavien-merlin/neo.git']]])
     }
     stage("Build"){
-        sh "/usr/local/bin/docker-compose build"
+        sh "docker-compose build"
     }
     stage("Run"){
-        sh "/usr/local/bin/docker-compose up -d"
+        sh "docker-compose up -d"
     }
     stage("Test"){
         try{
@@ -18,7 +18,7 @@ node{
         }
     }
     stage("Finalize"){
-        sh "/usr/local/bin/docker-compose push"
+        sh "docker-compose push"
         sh "docker stop neo"
     }
 }
