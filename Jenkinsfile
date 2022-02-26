@@ -19,9 +19,7 @@ node{
         }
     }
     stage("Finalize"){
-        steps{
-            sh "/usr/local/bin/docker-compose push"
-            sh "docker stop neo"   
-        }
+        sh "/usr/local/bin/docker-compose push"
+        sh "docker stop neo"
     }
 }
