@@ -1,2 +1,2 @@
 DevOps Project :
-World of Game is a game made with python.
+World of Game
