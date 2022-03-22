@@ -1,7 +1,5 @@
 FROM python:3.7-alpine
-RUN mkdir /app \
-    /app/static \
-    /app/templates \
+RUN bash -c "mkdir -p /app/{static,templates}" \
     pip install flask
 COPY MainScore.py /app \
      Score.txt /
