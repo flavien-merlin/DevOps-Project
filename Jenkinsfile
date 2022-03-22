@@ -1,7 +1,7 @@
 node{
 
     stage("clone"){
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/flavien-merlin/neo.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/flavien-merlin/DevOps-Project.git']]])
     }
     stage("Build"){
         sh "docker-compose build"
