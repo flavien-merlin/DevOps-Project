@@ -12,7 +12,7 @@ pipeline{
             }
         }
         stage("Build"){
-            
+
             steps{
                 sh "docker-compose build"
             }
@@ -25,14 +25,20 @@ pipeline{
         }
         stage("Test"){
 
-                try{
-                    sh "python3 e2e.py"
+            steps{
+
+                script{
+
+                    try{
+                        sh "python3 e2e.py"
+                    }
+                    catch(error){
+                        sh "echo Jenkins failed"
+                    }
                 }
-                catch(error){
-                    sh "echo Jenkins failed"
-                }
-                
+            }
         }
+        
         stage("Finalize"){
 
             steps{
