@@ -1,8 +1,9 @@
 pipeline {
     
     agent any
-
-    stage("clone"){
+    
+    stages {
+           stage("clone"){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/flavien-merlin/DevOps-Project.git']]])
     }
     stage("Build"){
@@ -23,4 +24,5 @@ pipeline {
         sh "docker-compose push"
         sh "docker stop neo"
     }
+  }
 }
