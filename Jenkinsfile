@@ -25,14 +25,13 @@ pipeline{
         }
         stage("Test"){
 
-            steps{
                 try{
                     sh "python3 e2e.py"
                 }
                 catch(error){
                     sh "echo Jenkins failed"
                 }
-            }
+                
         }
         stage("Finalize"){
 
