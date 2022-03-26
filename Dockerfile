@@ -1,10 +1,10 @@
 FROM python:3.7-alpine
-RUN mkdir /app
-RUN mkdir /app/static
-RUN mkdir /app/templates
-RUN pip install flask
-COPY MainScore.py /app
+WORKDIR /app
+RUN mkdir /app/static \ && mkdir /app/templates
+ADD static ./static
+ADD templates ./templates
+COPY MainScore.py .
+WORKDIR /
 COPY Score.txt /
-ADD static /app/static
-ADD templates /app/templates
+RUN pip install flask
 CMD ["python", "/app/MainScore.py"]
