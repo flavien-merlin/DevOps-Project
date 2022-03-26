@@ -1,6 +1,5 @@
 import os
 from Utils import SCORES_FILE_NAME
-from e2e import main_function
 
 
 def add_score(difficulty):
@@ -22,4 +21,3 @@ def add_score(difficulty):
             score.write(str(points))
 
     score.close()
-    main_function()

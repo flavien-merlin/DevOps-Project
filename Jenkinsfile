@@ -42,7 +42,7 @@ pipeline{
         stage("Finalize"){
 
             steps{
-                sh "echo Jenkins failed"
+                sh "docker-compose push"
                 sh "docker stop neo"
             }
         }
