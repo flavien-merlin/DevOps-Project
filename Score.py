@@ -21,3 +21,4 @@ def add_score(difficulty):
             score.write(str(points))
 
     score.close()
+# main_score()
